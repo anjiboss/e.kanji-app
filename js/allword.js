@@ -5,7 +5,7 @@ const pageNav = $("#page-nav");
 let lastClicked;
 
 const changeLevel = (level) => {
-  if (level !== "Chọn cấp độ Kanji") {
+  if (level !== "Choose Level") {
     $("#grid-container").html("");
     fetch(`json/${level}.json`)
       .then((res) => res.json())

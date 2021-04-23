@@ -7,7 +7,7 @@ let words;
 function changeLevel(level) {
   curNum = 1;
   curLevel = level.split(" ")[1];
-  if (level !== "Chọn cấp độ Kanji") {
+  if (level !== "Choose Level") {
     fetch("json/" + level + ".json")
       .then((res) => res.json())
       .then((data) => {
@@ -70,9 +70,7 @@ let commentBtnFlag = false;
 $("#comments").click(() => {
   if (!commentBtnFlag) {
     $(".comments-container").css("transform", "translate(0%)");
-    $(".comments-container").html(
-      "<p>Loading... </p> Có thể sẽ mất thời gian vào lần đầu tải"
-    );
+    $(".comments-container").html("<p>Loading... </p> May take times at first");
     fetchComment(curLevel, curNum);
     commentBtnFlag = true;
   } else {
@@ -84,10 +82,10 @@ $("#comments").click(() => {
 const showForm = () => {
   const commentForm = `
   <form id="post-comment-form">
-  <input type="text" id="username"autocomplete="off" placeholder="Tên">
-  <input type="text" id="comment" autocomplete="off" placeholder="Bình Luận">
-  <input type="submit" class="btn cmt-btn" value="Bình Luận">
-  <button id="back-btn" class="btn cmt-btn" onclick="goBack()"> Trở Lại </button>
+  <input type="text" id="username"autocomplete="off" placeholder="Name">
+  <input type="text" id="comment" autocomplete="off" placeholder="Comment">
+  <input type="submit" class="btn cmt-btn" value="Comment">
+  <button id="back-btn" class="btn cmt-btn" onclick="goBack()"> Back </button>
   </form>
   `;
   $(".comments-container").html(commentForm);
@@ -136,7 +134,7 @@ const fetchComment = (curLevel, curNum) => {
           `<div id="comments-holder">
           <div class="comment-box">
           <p class="user">Admin:</p>
-          <p class="comment-word">Chưa có bình luận nào về chữ này. Hãy là người đầu tiên bình luận </p>
+          <p class="comment-word">Currently There is no comment yet. Be the first one Comment ?!</p>
           </div>
           </div>
           <button id="post-comment" class="btn" onclick="showForm()"> Bình Luận </div>`
@@ -149,7 +147,7 @@ const fetchComment = (curLevel, curNum) => {
           <p class="comment-word">${comment.comment}</p>
           </div>`);
         $(".comments-container").html(
-          `<button id="post-comment" class="btn" onclick="showForm()"> Bình Luận </div>`
+          `<button id="post-comment" class="btn" onclick="showForm()"> Comment </div>`
         );
       });
       $(".comments-container").append(table);

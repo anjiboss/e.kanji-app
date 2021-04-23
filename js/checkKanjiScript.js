@@ -12,7 +12,7 @@ let numberOfQuestion;
 let wrongAnswer;
 
 async function changeLevel(level) {
-  if (level !== "Chọn cấp độ Kanji") {
+  if (level !== "Choose Level") {
     const res = await fetch(`json/${level}.json`);
     const data = await res.json();
     $("#input-field").css("display", "block");
