@@ -119,21 +119,19 @@ $(".answers").click(function () {
 });
 
 const showScore = (score) => {
-  $("#score").html(`Điểm: ${score}/${numberOfQuestion}`);
+  $("#score").html(`Score: ${score}/${numberOfQuestion}`);
 };
 
 const testEnd = () => {
   $("#checker-zone").removeAttr("style");
   $("#end-test")
     .css("display", "flex")
-    .append(
-      `<p id="end-score">Điểm Của Bạn: ${curScore}/${numberOfQuestion}</p>`
-    );
+    .append(`<p id="end-score">Score: ${curScore}/${numberOfQuestion}</p>`);
   if (wrongAnswer.length === 0) {
     return;
   }
   $("#end-test").append(
-    `<button id="wrong-answer-button"onclick="showWrongAnswer()" >Các Chữ Đã Sai</button>`
+    `<button id="wrong-answer-button"onclick="showWrongAnswer()" >Wrong Word</button>`
   );
 };
 
@@ -161,7 +159,7 @@ $("#change10W").click(() => {
 
 const outMax = (_max) => {
   //Output the maximun word's number of the level
-  $("#max-num").html(`<p>Chọn số tối đa: ${_max}</p>`);
+  $("#max-num").html(`<p>Final Word : ${_max}</p>`);
 };
 
 $("#max-num").click(() => {

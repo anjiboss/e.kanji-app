@@ -39,3 +39,12 @@
   width: 100%;
   text-align: center;
 }
+
+#content {
+  color: #f35d52;
+  width: 50%;
+  padding-top: 10px;
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: 900;
+}
